@@ -459,3 +459,5 @@ def get_array_module(*args):
         if isinstance(arg, ndarray):
             return _cupy
     return numpy
+
+fuse = fusion.fuse
