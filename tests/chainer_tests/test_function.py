@@ -115,8 +115,8 @@ class TestFunction(unittest.TestCase):
     def check_call(self):
         x1 = chainer.Variable(self.x1)
         x2 = chainer.Variable(self.x2)
-        x1.rank = 1
-        x2.rank = 3
+        x1._node._rank = 1
+        x2._node._rank = 3
         ys = self.f(x1, x2)
 
         self.assertEqual(len(ys), 2)
@@ -141,7 +141,7 @@ class TestFunction(unittest.TestCase):
     def check_call_ndarray(self):
         x1 = chainer.Variable(self.x1)
         x2 = self.x2
-        x1.rank = 1
+        x1._node._rank = 1
         ys = self.f(x1, x2)
 
         self.assertEqual(len(ys), 2)
